@@ -1,0 +1,58 @@
+<!--Найдите координаты точек относительно окна браузера-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="1.css">
+    <script>
+        document.onclick = function (e) { // показывает координаты точки клика
+            coords.innerHTML = e.clientX + ':' + e.clientY;
+        };
+    </script>
+</head>
+
+<body>
+
+    Кликните в любом месте для получения координат в контексте окна.
+    <br> Это для тестирования, чтобы проверить результат, который вы получили с помощью JavaScript.
+    <br>
+    <div id="coords">(координаты покажутся здесь)</div>
+
+
+    <div id="field">
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+
+    <div class="triangle-right" style="left:-20px;top:-176px">1</div>
+    <div class="triangle-right" style="left:-10px;top:-178px">3</div>
+    <div class="triangle-right" style="left:190px;top:-40px">4</div>
+    <div class="triangle-right" style="left:200px;top:-42px">2</div>
+
+
+    <script>
+        let element = document.getElementById('field')
+        console.log(element.getBoundingClientRect())
+
+        let leftTopX = element.getBoundingClientRect().x
+        let leftTopY = element.getBoundingClientRect().y
+
+        let rightBotX = element.getBoundingClientRect().x + element.getBoundingClientRect().width
+        let rightBotY = element.getBoundingClientRect().y + element.getBoundingClientRect().height
+
+        let leftTopXInner = element.getBoundingClientRect().x + element.clientLeft
+        let leftTopYInner = element.getBoundingClientRect().y + element.clientTop
+
+        let rightBotXInner = element.getBoundingClientRect().x + element.getBoundingClientRect().width - element.clientLeft
+        let rightBotYInner = element.getBoundingClientRect().y + element.getBoundingClientRect().height - element.clientTop
+
+    </script>
+
+</body>
+
+</html>

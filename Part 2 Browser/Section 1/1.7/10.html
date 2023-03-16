@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Pete</td>
+                <td>Brown</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>Ann</td>
+                <td>Lee</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        let rowsArray = Array.from(document.querySelectorAll('tr')).slice(1)
+
+        rowsArray.sort((a, b) => {
+            if (a.querySelector('td').innerHTML > b.querySelector('td').innerHTML) {
+                return 1
+            } else {
+                return -1
+            }
+        }
+        )
+
+        document.querySelector('tbody').innerHTML = ''
+
+        for (let i = 0; i < rowsArray.length; i++) {
+            document.querySelector('tbody').append(rowsArray[i])
+        }
+    </script>
+</body>
+
+</html>

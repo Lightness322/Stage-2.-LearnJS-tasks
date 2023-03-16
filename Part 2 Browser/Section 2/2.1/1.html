@@ -1,0 +1,24 @@
+<!--Скрыть элемент по нажатию кнопки-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+
+    <div id="text">Текст</div>
+
+    <script>
+        input = document.getElementById('hider')
+        text = document.getElementById('text')
+
+        input.addEventListener('click', () => text.style.display = 'none')
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!--Создать раскрывающееся меню-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        #field {
+            width: 200px;
+            height: 150px;
+            border: 10px solid black;
+            background-color: #00FF00;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .title {
+            cursor: pointer;
+        }
+
+        .title::before {
+            content: '▶';
+            color: green
+        }
+
+        .open.title::before {
+            content: '▼';
+            color: green
+        }
+
+        ul.open {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="title">
+            Сладости (нажми меня)!
+        </div>
+        <ul>
+            <li>Пирожное</li>
+            <li>Пончик</li>
+            <li>Мёд</li>
+        </ul>
+    </div>
+
+    <script>
+        title = document.querySelector('.title')
+        ul = document.querySelector('ul')
+
+        title.addEventListener('click', () => {
+            title.classList.toggle('open')
+            ul.classList.toggle('open')
+        })
+
+    </script>
+
+</body>
+
+</html>

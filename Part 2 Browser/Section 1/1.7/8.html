@@ -1,0 +1,45 @@
+// Цветные часы с использованием setInterval
+<!DOCTYPE HTML>
+<html>
+
+<body>
+    <div id="clock">
+        <span style="color: red" class="hour">hh</span>:<span style="color: green" class="min">mm</span>:<span
+            style="color: blue" class="sec">ss</span>
+    </div>
+    <!-- клик по этой кнопке вызовет clockStart() -->
+    <input type="button" onclick="clockStart()" value="Старт">
+
+    <!-- клик по этой кнопке вызовет clockStop() -->
+    <input type="button" onclick="clockStop()" value="Стоп">
+    <script>
+        let timerId
+        let stop
+
+        function update() {
+            let date = new Date()
+
+            let hour = document.querySelector('.hour')
+            let hours = date.getHours()
+            hour.innerHTML = hours > 9 ? hours : '0' + hours
+
+            let min = document.querySelector('.min')
+            let mins = date.getMinutes()
+            min.innerHTML = mins > 9 ? mins : '0' + mins
+
+            let sec = document.querySelector('.sec')
+            let secs = date.getSeconds()
+            sec.innerHTML = secs > 9 ? secs : '0' + secs
+        }
+
+        function clockStart() {
+            timerId = setInterval(update, 100)
+        }
+
+        function clockStop() {
+            clearInterval(timerId)
+        }
+    </script>
+</body>
+
+</html>
